@@ -4,6 +4,19 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('dotenv').config();
+
+var pool = require('./models/bd');
+
+pool.query('SELECT * FROM empleados')
+  .then(function(rows) {
+    console.log('Datos de la base:');
+    console.log(rows);
+  })
+  .catch(function(error) {
+    console.error('Error al obtener empleados:', error);
+  });
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
