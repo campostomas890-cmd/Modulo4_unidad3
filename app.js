@@ -8,13 +8,13 @@ require('dotenv').config();
 
 var pool = require('./models/bd');
 
-pool.query('SELECT * FROM empleados')
+pool.query('SELECT * FROM usuarioycontraseñaprogramadores WHERE id = 3;')//aca hace la consulta en caso consulta y despues npm start en la terminan y funca
   .then(function(rows) {
     console.log('Datos de la base:');
-    console.log(rows);
+    console.table(rows); // 
   })
   .catch(function(error) {
-    console.error('Error al obtener empleados:', error);
+    console.error('Error al obtener usuarios:', error);
   });
 
 var indexRouter = require('./routes/index');
@@ -40,13 +40,13 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
+
   res.status(err.status || 500);
   res.render('error');
 });
