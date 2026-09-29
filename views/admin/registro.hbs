@@ -1,0 +1,31 @@
+<div class="container" style="margin-top: 80px; max-width: 450px;">
+  <div class="card shadow-sm">
+    <div class="card-body p-4">
+      <h3 class="card-title text-center mb-4">Registro de Usuario</h3>
+      
+      <form action="/admin/login/registro" method="post">
+        <div class="mb-3">
+          <label for="usuario" class="form-label">Nombre de usuario</label>
+          <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ej: maria99" required>
+        </div>
+        
+        <div class="mb-3">
+          <label for="contraseña" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="contraseña" name="contraseña" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mt-2">Registrarse</button>
+      </form>
+
+      {{#if error}}
+        <div class="alert alert-danger mt-3 mb-0" role="alert">
+          {{message}}
+        </div>
+      {{/if}}
+
+      <div class="mt-3 text-center">
+        <a href="/admin/login" class="text-decoration-none">¿Ya tienes cuenta? Inicia sesión aquí</a>
+      </div>
+    </div>
+  </div>
+</div>

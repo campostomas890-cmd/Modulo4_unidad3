@@ -1,11 +1,280 @@
-<h1>{{title}}</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cervecería X</title>
+  
+  <!-- Fuentes de Google: Alfa Slab One y Open Sans (400, 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS de Bootstrap (vía CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  
+  <!-- CSS Personalizado -->
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
 
-{{#if empleados.length}}
-  <ul>
-    {{#each empleados}}
-      <li><pre>{{this}}</pre></li>
-    {{/each}}
-  </ul>
-{{else}}
-  <p>No se encontraron registros.</p>
-{{/if}}
+  <!-- 1. BARRA DE NAVEGACIÓN (Fija superior) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Cerveceria x</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#novedades">Novedades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#historia">Historia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#nosotros">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#conocenos">Conócenos</a>
+          </li>
+          <!--Sector nav para que te registres-->
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/login">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="container-fluid">
+
+    <!-- 2. SECCIÓN HERO -->
+    <div id="home" class="row align-items-center hero scroll_section">
+      <div class="col-lg-3 offset-lg-2">
+        <p class="bajada">Sabor que impone</p>
+        <h1>Cerveza que abruma</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium vero voluptate itaque.</p>
+      </div>
+    </div>
+
+    <!-- 3. SECCIÓN NOVEDADES Y TESTIMONIOS -->
+    <div class="row my-3">
+      
+      <!-- Novedades (col-md-5) -->
+      <div id="novedades" class="col-md-5 offset-md-2 py-3 scroll_section">
+        <h2>Novedades</h2>
+        <ul class="lista-novedades">
+          <li>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modalNovedad01">
+              <img src="/images/novedades01.jpg" alt="novedad 01">Nuevas
+              cervezas en venta
+            </a>
+          </li>
+          <li>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modalNovedad01">
+              <img src="/images/novedades01.jpg" alt="novedad 02">Nueva sucursal abierta
+            </a>
+          </li>
+          <li>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modalNovedad01">
+              <img src="/images/novedades01.jpg" alt="novedad 03">Nuevos metodos de pagos
+            </a>
+          </li>
+          <li>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modalNovedad01">
+              <img src="/images/novedades01.jpg" alt="novedad 04">Estamos reclutando personal
+            </a>
+          </li>
+          <li>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modalNovedad01">
+              <img src="/images/novedades01.jpg" alt="novedad 05">Eventos especiales
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Testimonios (col-md-3) -->
+      <div class="col-md-3 my-3">
+        <div class="rounded py-5 testimonios">
+          <h2 class="text-center">Testimonios</h2>
+          <div id="carouselTestimonios" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselTestimonios" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselTestimonios" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselTestimonios" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="testimonio">
+                  <h5>"¡La mejor birra del mundo!!"</h5>
+                  <p>Francisco, Monte Grande</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="testimonio">
+                  <h5>"La mejor birra del mundo 2!!"</h5>
+                  <p>Flavia, Devoto</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="testimonio">
+                  <h5>"La mejor birra del mundo 3!!"</h5>
+                  <p>Eric, Mataderos</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTestimonios" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselTestimonios" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+          </div>
+        </div>
+      </div> <!-- Cierra columna Testimonios -->
+
+    </div> <!-- Cierra fila Novedades y Testimonios -->
+
+    <!-- 4. SECCIÓN HISTORIA -->
+    <div id="historia" class="row align-items-center py-4 scroll_section">
+      <div class="col-lg-2 col-md-3 offset-lg-2 d-none d-sm-block">
+        <img src="/images/historia_1.jpg" alt="historia 1" class="img-fluid">
+      </div>
+      <div class="col-lg-2 col-md-3 d-none d-sm-block">
+        <img src="/images/historia_2.jpg" alt="historia 2" class="img-fluid">
+      </div>
+      <div class="col-lg-4 col-md-6 mt-4 mt-sm-0">
+        <h2>Historia</h2>
+        <p>Nuestra historia comienza con los fundadores de la empresa, quienes tenían una visión innovadora y un compromiso con la calidad.</p>
+      </div>
+    </div>
+
+    <!-- 5. SECCIÓN NOSOTROS (Staff) -->
+    <div id="nosotros" class="row align-items-stretch my-3 staff py-4 scroll_section">
+      <div class="col-lg-8 offset-lg-2">
+        <h2>Nosotros</h2>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+          <div class="col">
+            <div class="card h-100">
+              <img src="/images/nosotros01.jpg" class="card-img-top" alt="Diana Reyes">
+              <div class="card-body">
+                <h5 class="card-title">Diana Reyes</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="/images/nosotros02.jpg" class="card-img-top" alt="Juan Gómez">
+              <div class="card-body">
+                <h5 class="card-title">Juan Gómez</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="/images/nosotros03.jpg" class="card-img-top" alt="Roberto Pérez">
+              <div class="card-body">
+                <h5 class="card-title">Roberto Pérez</h5>
+                <p class="card-text">This is a longer card with supporting text.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="/images/nosotros04.jpg" class="card-img-top" alt="Sofía Díaz">
+              <div class="card-body">
+                <h5 class="card-title">Sofía Díaz</h5>
+                <p class="card-text">This is a longer card with supporting text.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. SECCIÓN CONÓCENOS (Visítanos y Contáctanos) -->
+    <div id="conocenos" class="row py-4 scroll_section">
+      
+      <!-- Visítanos (Mapa de Google) -->
+      <div class="col-md-4 offset-md-2">
+        <h2>Visítanos</h2>
+        <div class="mapa">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.2194085942297!2d-58.42229628459199!3d-34.59861296473546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca62d4cf1563%3A0x686de505d84c67e6!2sAv.%20Medrano%20951%2C%20C1179AAQ%20CABA!5e0!3m2!1ses!2sar!4v1657828580162!5m2!1ses!2sar" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Contáctanos (Formulario) -->
+      <div class="col-md-4 mt-4 mt-sm-0">
+        <h2>Contáctanos</h2>
+        {{#if contactoEnviado}}
+          <div class="alert alert-success" role="alert">Mensaje enviado correctamente.</div>
+        {{/if}}
+        {{#if contactoError}}
+          <div class="alert alert-danger" role="alert">Completa nombre, email y mensaje.</div>
+        {{/if}}
+        <form class="row g-3" action="/contacto" method="POST">
+          <div class="col-md-6">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="..." required>
+          </div>
+          <div class="col-md-6">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" placeholder="...">
+          </div>
+          <div class="col-12">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@email.com" required>
+          </div>
+          <div class="col-12">
+            <label for="tel" class="form-label">Tel</label>
+            <input type="text" class="form-control" id="tel" name="tel" placeholder="...">
+          </div>
+          <div class="col-12">
+            <label for="mensaje" class="form-label">Mensaje</label>
+            <textarea class="form-control" id="mensaje" name="mensaje" rows="3" required></textarea>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
+        </form>
+      </div>
+
+    </div> <!-- Cierra fila Conócenos -->
+
+  </div> <!-- Cierra container-fluid -->
+
+  <!-- 7. PIE DE PÁGINA (Footer) -->
+  <footer class="text-center py-4 bg-light">
+    <p class="m-0">Diseñado por: Flavia Ursino</p>
+  </footer>
+
+  <!-- 8. VENTANA MODAL DE EJEMPLO (Se abre al hacer clic en novedades) -->
+  <div class="modal fade" id="modalNovedad01" tabindex="-1" aria-labelledby="modalNovedad01Label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modalNovedad01Label"> Nuevas variedades</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h3>Cocinamos nuestra primera Honey Bee</h3>
+          <p> Incorporamos una receta única con miel orgánica de productores locales. El resultado es una cerveza de cuerpo ligero, aroma floral y un dulzor equilibrado ideal para acompañar tablas de quesos y postres.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS de Bootstrap (vía CDN al final de la página) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>

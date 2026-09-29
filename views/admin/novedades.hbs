@@ -1,0 +1,114 @@
+<div class="container" style="margin-top: 50px;">
+    <div class="row mb-3">
+        <div class="col-md-8">
+            <h2>Listado de Novedades</h2>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end align-items-center gap-2">
+            <form class="d-flex gap-2" action="/admin/novedades" method="get">
+                <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar" name="q" value="{{q}}">
+                <button class="btn btn-secondary" type="submit">Buscar</button>
+            </form>
+        </div>
+    </div>
+
+    {{#if programador}}
+        <h4 class="mt-4">Editar novedad</h4>
+        <form action="/admin/novedades/editar/{{programador.id}}" method="post" enctype="multipart/form-data" class="mb-4">
+            <div class="row align-items-end g-2">
+                <div class="col-md-3">
+                    <input type="text" class="form-control" value="{{programador.titulo}}" name="titulo" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" value="{{programador.subtitulo}}" name="subtitulo" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" value="{{programador.cuerpo}}" name="cuerpo" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="hidden" name="img_id_actual" value="{{programador.img_id}}">
+                    <label for="img_id" class="form-label">Imagen nueva (opcional)</label>
+                    <input type="file" class="form-control" name="img_id" id="img_id" accept="image/*">
+                </div>
+                <div class="col-12 d-flex gap-2">
+                    <button type="submit" class="btn btn-success">Guardar cambios</button>
+                    <a href="/admin/novedades" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </div>
+        </form>
+    {{else}}
+        <form action="/admin/novedades/agregar" method="post" enctype="multipart/form-data" class="mb-4">
+            <div class="row align-items-end g-2">
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Título" name="titulo" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Subtítulo" name="subtitulo" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Cuerpo" name="cuerpo" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="img_id" class="form-label">Imagen</label>
+                    <input type="file" class="form-control" name="img_id" id="img_id" accept="image/*">
+                </div>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-primary w-100">Agregar</button>
+                </div>
+            </div>
+        </form>
+    {{/if}}
+
+    {{#if error}}
+        <div class="alert alert-danger" role="alert">
+            {{message}}
+        </div>
+    {{/if}}
+
+    {{#if is_search}}
+        {{#unless programadores.length}}
+            <div class="alert alert-warning" role="alert">
+                No se encontraron resultados para "{{q}}".
+            </div>
+        {{/unless}}
+    {{/if}}
+
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Subtítulo</th>
+                <th>Cuerpo</th>
+                <th>Imagen</th>
+                <th class="text-end">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each programadores}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{titulo}}</td>
+                    <td>{{subtitulo}}</td>
+                    <td>{{cuerpo}}</td>
+                    <td>
+                        {{#if img_id}}
+                            <img src="/images/{{img_id}}" width="80" alt="imagen" style="object-fit: cover;">
+                        {{else}}
+                            <span>Sin imagen</span>
+                        {{/if}}
+                    </td>
+                    <td class="text-end d-flex justify-content-end gap-2">
+                        <a href="/admin/novedades/editar/{{id}}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="/admin/novedades/eliminar/{{id}}" class="btn btn-sm btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <div class="row mt-4">
+        <div class="col text-end">
+            <p>Hola {{usuario}}! <a class="btn btn-danger btn-sm" href="/admin/login/logout">Cerrar Sesión</a></p>
+        </div>
+    </div>
+</div>

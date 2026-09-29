@@ -1,8 +1,101 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* --- Estilos Generales --- */
+html {
+  scroll-behavior: smooth; /* Desplazamiento suave */
 }
 
-a {
-  color: #00B7FF;
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2 {
+  font-family: 'Alfa Slab One', cursive; /* Fuente destacada para encabezados */
+}
+
+/* Espaciado superior para las secciones debido a la barra fija */
+.scroll_section {
+  scroll-margin-top: 60px;
+}
+
+/* --- Sección Hero --- */
+.hero {
+  background: url('/images/header.jpg') no-repeat;
+  background-size: cover;
+  height: 50vh;
+  min-height: 600px;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-top: 15px;
+}
+
+/* --- Sección Novedades --- */
+.lista-novedades {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-novedades li {
+  margin: 4px 0;
+}
+
+.lista-novedades li a {
+  background-color: #fff;
+  font-family: 'Alfa Slab One', cursive;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #a0a0a0;
+  transition: all .2s ease-in-out;
+  display: block;
+}
+
+.lista-novedades li a:hover {
+  color: #212529;
+  background-color: #dadada;
+}
+
+.lista-novedades li a img {
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
+  filter: grayscale(); /* Imagen en escala de grises */
+  transition: all .2s ease-in-out;
+  margin-right: 1rem;
+  opacity: 0.7;
+}
+
+/* Animación cuando pasa el cursor */
+.lista-novedades li a:hover img {
+  filter: none; /* Recupera colores */
+  margin-right: 1.4rem; /* Desplazamiento de texto */
+  opacity: 1;
+}
+
+/* --- Sección Testimonios --- */
+.testimonios {
+  background-color: #dadada;
+  padding-bottom: 4rem !important;
+}
+
+.testimonio {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+/* --- Sección Nosotros --- */
+.staff {
+  background-color: #efefef; /* Fondo gris claro */
+}
+
+/* --- Mapa de Google --- */
+.mapa iframe {
+  width: 100%;
+  aspect-ratio: 1.2; /* Proporción elástica del mapa */
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #aaa !important; /* Fondo gris oscuro */
 }
